@@ -148,7 +148,7 @@ public class MvcConfig implements WebMvcConfigurer {
 		String springProfileActive = System.getProperty("spring.profiles.active", "local");
 		
 		final TilesConfigurer tilesConfigurer = new TilesConfigurer();
-		tilesConfigurer.setDefinitions(new String[] {"classpath:/tiles/tiles-" + springProfileActive + ".xml"});
+		tilesConfigurer.setDefinitions(new String[] {"classpath:/config/tiles/tiles-" + springProfileActive + ".xml"});
 		tilesConfigurer.setCheckRefresh(true);
 		
 		return tilesConfigurer;

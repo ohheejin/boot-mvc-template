@@ -20,7 +20,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		System.setProperty("spring.config.location", "classpath:/springboot/");
+		System.setProperty("spring.config.location", "classpath:/config/springboot/");
 		
 		if (System.getProperty("spring.profiles.active") == null) {
 			System.setProperty("spring.profiles.active", "local");
