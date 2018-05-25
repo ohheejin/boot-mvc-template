@@ -1,0 +1,8 @@
+datasource:
+  sv:
+    data:
+      jndiName: java:comp/env/jdbc/svdev
+  svc:
+    data:
+      jndiName: java:comp/env/jdbc/svcdev
+      

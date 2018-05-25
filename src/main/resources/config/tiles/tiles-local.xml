@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="mainLayout" template="/WEB-INF/views/tiles/mainLayout.jsp">
+		<put-attribute name="title"			value="Dashboard" />
+		<put-attribute name="header"		value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="headerMobile"	value="/WEB-INF/views/common/headerMobile.jsp" />
+		<put-attribute name="menu"			value="/WEB-INF/views/common/menu.jsp" />
+		<put-attribute name="content"		value=""/>
+	</definition>
+	
+	<definition name="*/*" extends="mainLayout">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
+    
+</tiles-definitions>
