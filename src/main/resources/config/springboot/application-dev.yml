@@ -6,3 +6,7 @@ datasource:
     data:
       jndiName: java:comp/env/jdbc/svcdev
       
+server:
+  error:
+    whitelabel:
+      enabled: false

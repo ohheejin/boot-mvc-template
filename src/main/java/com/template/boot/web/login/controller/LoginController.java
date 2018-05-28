@@ -1,4 +1,4 @@
-package com.template.boot.login.controller;
+package com.template.boot.web.login.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

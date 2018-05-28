@@ -5,3 +5,4 @@ datasource:
   svc:
     data:
       jndiName: java:comp/env/jdbc/svc
+      

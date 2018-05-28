@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(value="com.template.boot.dashboard.mapper", sqlSessionFactoryRef="sqlSessionFactorySV")
+@MapperScan(value="com.template.boot.web.dashboard.mapper", sqlSessionFactoryRef="sqlSessionFactorySV")
 public class DatasourceConfigSV {
 
 	@Value("${datasource.sv.data.jndiName}")

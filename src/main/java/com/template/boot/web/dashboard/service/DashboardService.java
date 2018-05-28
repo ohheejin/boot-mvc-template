@@ -1,4 +1,4 @@
-package com.template.boot.dashboard.service;
+package com.template.boot.web.dashboard.service;
 
 public interface DashboardService {
 

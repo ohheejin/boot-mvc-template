@@ -1,4 +1,4 @@
-package com.template.boot.chart.controller;
+package com.template.boot.web.chart.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.template.boot.chart.service.ChartService;
+import com.template.boot.web.chart.service.ChartService;
 
 @Controller
 public class ChartController {

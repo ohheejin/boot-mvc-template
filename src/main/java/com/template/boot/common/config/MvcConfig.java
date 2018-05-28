@@ -61,8 +61,8 @@ public class MvcConfig implements WebMvcConfigurer {
 		
 		return interceptor;
 	}
-	
 	// end intercepter
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		logger.debug("resource file configuring");

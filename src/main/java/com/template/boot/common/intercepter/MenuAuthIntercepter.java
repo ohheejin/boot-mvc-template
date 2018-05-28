@@ -14,15 +14,24 @@ public class MenuAuthIntercepter extends HandlerInterceptorAdapter {
 
 	private Logger logger = LoggerFactory.getLogger(MenuAuthIntercepter.class);
 	
+	public static void main(String[] args) {
+		
+	}
+	
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String requestURI = request.getRequestURI();
+		
+		//chart.~~ 하면 접속되는 문제
+		if (requestURI.contains(".")) {
+			requestURI = requestURI.substring(0, requestURI.indexOf("."));
+		}
+		
 		logger.debug("URI : " + requestURI);
 		
 		HttpSession session = request.getSession(false);
-		
-		System.out.println("session is null? : " + (session == null));
 		
 		if (session != null) {
 			

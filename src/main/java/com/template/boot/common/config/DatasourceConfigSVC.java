@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(value="com.template.boot.chart.mapper", sqlSessionFactoryRef="sqlSessionFactorySVC")
+@MapperScan(value="com.template.boot.web.chart.mapper", sqlSessionFactoryRef="sqlSessionFactorySVC")
 //@MapperScan(value="com.template.boot.**.mapper", sqlSessionFactoryRef="sqlSessionFactorySVC") <- pattern으로 mapper java 파일 가져오기
 public class DatasourceConfigSVC {
 
