@@ -41,11 +41,25 @@ public class MvcConfig implements WebMvcConfigurer {
 		.excludePathPatterns("/loginAjax")
 		.excludePathPatterns("/error/**");
 		
+		registry.addInterceptor(getWebContentInterceptor());
 	}
 	
 	@Bean
 	public MenuAuthIntercepter getMenuAuthIntercepter() {
 		return new MenuAuthIntercepter();
+	}
+	
+	@Bean
+	public WebContentInterceptor getWebContentInterceptor() {
+		WebContentInterceptor interceptor = new WebContentInterceptor();
+		
+		interceptor.setCacheSeconds(0);
+		interceptor.setUseExpiresHeader(true);
+		interceptor.setUseCacheControlHeader(true);
+		interceptor.setUseCacheControlNoStore(true);
+		interceptor.setAlwaysMustRevalidate(true);
+		
+		return interceptor;
 	}
 	
 	// end intercepter
