@@ -1,6 +1,7 @@
 package com.template.boot.dashboard.mapper;
 
-public interface DashboardMapper {
+import org.apache.ibatis.annotations.Mapper;
 
+public interface DashboardMapper {
 	public int selectOne();
 }

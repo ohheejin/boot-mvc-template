@@ -23,6 +23,8 @@ public class BootMvcTemplateApplication {
 	
 	@PostConstruct
 	public void a() {
+		//테스트용이라 logger 사용 x 삭제
+		//TODO 삭제
 		System.out.println(svJndiName);
 	}
 }

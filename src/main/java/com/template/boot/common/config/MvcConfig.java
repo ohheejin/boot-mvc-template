@@ -14,15 +14,18 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.mvc.WebContentInterceptor;
 import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.template.boot.common.intercepter.MenuAuthIntercepter;
 
 @Configuration
 @EnableWebMvc
@@ -30,6 +33,22 @@ public class MvcConfig implements WebMvcConfigurer {
 
 	private Logger logger = LoggerFactory.getLogger(MvcConfig.class);
 	
+	// intercepter
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(getMenuAuthIntercepter()).addPathPatterns("/**")
+		.excludePathPatterns("/login")
+		.excludePathPatterns("/loginAjax")
+		.excludePathPatterns("/error/**");
+		
+	}
+	
+	@Bean
+	public MenuAuthIntercepter getMenuAuthIntercepter() {
+		return new MenuAuthIntercepter();
+	}
+	
+	// end intercepter
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		logger.debug("resource file configuring");
@@ -61,7 +80,7 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.tiles().viewClass(TilesView.class);
 		
 		registry.viewResolver(new BeanNameViewResolver());
-		//registry.jsp("/WEB-INF/views/", ".jsp");
+		//registry.jsp("/WEB-INF/views/", ".jsp"); <- jsp 설정
 	}
 	
 	/**
